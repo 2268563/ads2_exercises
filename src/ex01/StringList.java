@@ -187,7 +187,7 @@ public class StringList {
 	public void append(StringList l) {
 		this.head = this.reverse().head;
 		for (int i = 0; i < l.size; i++) {
-			this.addFront(l.get(i));			
+			this.addFront(l.get(i));
 		}
 		this.head = this.reverse().head;
 	}
@@ -200,9 +200,17 @@ public class StringList {
 	//
 
 	public int count(String s) {
-		return -1;
+		int count = 0;
+		Node cursor = head;
+		while (cursor != null) {
+			if (cursor.getElement().equals(s)) {
+				count++;
+			}
+			cursor = cursor.getNext();
+		}
+		return count;
 	}
-	// IMPLEMENT THIS
+	// IMPLEMENT THIS - done
 	//
 	// l.count(s) returns the number of times s occurs in l
 	//
