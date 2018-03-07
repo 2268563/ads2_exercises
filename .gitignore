@@ -1,0 +1,6 @@
+*.ppt*
+*.class
+.DS_Store
+*.jpg
+*.jar
+*.pdf
