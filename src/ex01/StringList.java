@@ -170,9 +170,15 @@ public class StringList {
 	//
 
 	public Node last() {
-		return null;
+		Node cursor = null;
+		Node nextNode = head;
+		while (nextNode != null) {
+			cursor = nextNode;
+			nextNode = nextNode.getNext();
+		}
+		return cursor;
 	}
-	// IMPLEMENT THIS
+	// IMPLEMENT THIS - done
 	//
 	// l.last() delivers the last Node in the list l.
 	// Note: this might be used when appending lists
