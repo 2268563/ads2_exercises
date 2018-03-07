@@ -216,9 +216,18 @@ public class StringList {
 	//
 
 	public int indexOf(String s) {
-		return -999;
+		int index = 0;
+		Node cursor = head;
+		while (cursor != null) {
+			if (cursor.getElement().equals(s)) {
+				return index;
+			}
+			index++;
+			cursor = cursor.getNext();
+		}
+		return -1;
 	}
-	// IMPLEMENT THIS
+	// IMPLEMENT THIS - done
 	//
 	// indexOf(s) returns -1 if s is not in the list, otherwise
 	// the index of the first occurrence of s in the list
