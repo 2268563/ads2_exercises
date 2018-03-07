@@ -234,8 +234,15 @@ public class StringList {
 	//
 
 	public void replace(String s1, String s2) {
+		Node cursor = head;
+		while (cursor != null) {
+			if (cursor.getElement().equals(s1)) {
+				cursor.setElement(s2);
+			}
+			cursor = cursor.getNext();
+		}
 	}
-	// IMPLEMENT ME
+	// IMPLEMENT ME - done
 	//
 	// replace all occurrences of s1 with s2
 	// NOTE: you need to use setElement
