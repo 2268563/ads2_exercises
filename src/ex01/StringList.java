@@ -126,7 +126,7 @@ public class StringList {
 	//
 
 	public boolean equal(StringList l) {
-		if(this.size() != l.size()) {
+		if (this.size() != l.size()) {
 			return false;
 		}
 		return this.toString().equals(l.toString());
@@ -140,22 +140,29 @@ public class StringList {
 	public StringList reverse() {
 		StringList sl = new StringList();
 		Node cursor = head;
-		while(cursor != null) {
+		while (cursor != null) {
 			sl.addFront(cursor.getElement());
 			cursor = cursor.getNext();
 		}
 		return sl;
 	}
-	// IMPLEMENT THIS
+	// IMPLEMENT THIS - done
 	//
 	// l.reverse() delivers a new StringList that has the
 	// the elements of l in reverse order
 	//
 
 	public String get(int i) {
-		return "IMPLEMENT THIS";
+		if (i < 0 || i > this.size()) {
+			return "";
+		}
+		Node cursor = head;
+		for (; i > 0; i--) {
+			cursor = cursor.getNext();
+		}
+		return cursor.getElement();
 	}
-	// IMPLEMENT THIS
+	// IMPLEMENT THIS - done
 	//
 	// l.get(i) delivers a String s, the ith element of list l.
 	// If i is negative or i is greater than or equal to l.size() deliver ""
