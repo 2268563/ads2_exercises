@@ -1,4 +1,4 @@
-
+package ex01;
 /**Node of a singly linked list of strings*/
 public class Node {
 

@@ -1,3 +1,4 @@
+package ex01;
 /** Singly linked list with just a head storing strings*/
 public class StringList {
 
