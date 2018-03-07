@@ -1,3 +1,5 @@
+package ex02;
+
 import java.util.*;
 import java.io.* ;
 
