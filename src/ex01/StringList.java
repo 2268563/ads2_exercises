@@ -185,8 +185,13 @@ public class StringList {
 	//
 
 	public void append(StringList l) {
+		this.head = this.reverse().head;
+		for (int i = 0; i < l.size; i++) {
+			this.addFront(l.get(i));			
+		}
+		this.head = this.reverse().head;
 	}
-	// IMPLEMENT THIS
+	// IMPLEMENT THIS - done
 	//
 	// l1.append(l2) append list l2 to the end of list l1.
 	// Note: this operation modifies l1, such that the last
