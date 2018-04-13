@@ -61,7 +61,11 @@ public class QueueSort<E extends Comparable<E>> {
     //     - go back to (1)
     //
 
-    public void add(E element){}
+    public void add(E element){
+    	ArrayQueue<E> newQueue = new ArrayQueue<>(1);
+    	newQueue.enqueue(element);
+    	Q.enqueue(newQueue);
+    }
     //
     // IMPLEMENT ME
     // create an ArrayQueue<E> that contains the element
