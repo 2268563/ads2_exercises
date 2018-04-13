@@ -64,7 +64,7 @@ public class ArrayQueue<E> {
 
 	public E dequeue() throws ArrayQueueException {
 		if (isEmpty()) {
-			throw new ArrayQueueException("Empty queue");
+			throw new ArrayQueueException("Queue underflow");
 		}
 		E temp = Q[front];
 		Q[front] = null;
