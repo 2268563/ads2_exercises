@@ -17,9 +17,28 @@ public class QueueSort<E extends Comparable<E>> {
 	Q = new ArrayQueue<ArrayQueue<E>>(n);
     }
 
-    private ArrayQueue<E> merge(ArrayQueue<E> q1,ArrayQueue<E> q2) throws ArrayQueueException {
-	return null;
-    }
+	private ArrayQueue<E> merge(ArrayQueue<E> q1, ArrayQueue<E> q2) throws ArrayQueueException {
+		ArrayQueue<E> newQueue = new ArrayQueue<>(q1.size() + q2.size());
+		
+		E q1e = q1.dequeue();
+		E q2e = q2.dequeue();
+		while (!(q1.isEmpty() && q2.isEmpty())) {
+			while(q2e.compareTo(q1e) < 0) {
+				newQueue.enqueue(q2e);
+				if(q2.isEmpty()) {
+					break;
+				}
+				q2e = q2.dequeue();
+			}
+			newQueue.enqueue(q1e);
+			if(q1.isEmpty()) {
+				break;
+			}
+			q1e = q1.dequeue();
+		}
+				
+		return newQueue;
+	}
     //
     // IMPLEMENT ME
     // Take two sorted queues and merge them to produce a third
