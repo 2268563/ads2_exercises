@@ -45,7 +45,11 @@ public class QueueSort<E extends Comparable<E>> {
     // sorted queue
     //
 
-    public void sort(){}
+    public void sort(){
+		while (Q.size() != 1) {
+			Q.enqueue(merge(Q.dequeue(), Q.dequeue()));
+		}
+    }
     //
     // IMPLEMENT ME
     // given a queue Q of queues
