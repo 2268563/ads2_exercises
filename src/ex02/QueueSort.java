@@ -19,24 +19,34 @@ public class QueueSort<E extends Comparable<E>> {
 
 	private ArrayQueue<E> merge(ArrayQueue<E> q1, ArrayQueue<E> q2) throws ArrayQueueException {
 		ArrayQueue<E> newQueue = new ArrayQueue<>(q1.size() + q2.size());
-		
+
 		E q1e = q1.dequeue();
 		E q2e = q2.dequeue();
-		while (!(q1.isEmpty() && q2.isEmpty())) {
-			while(q2e.compareTo(q1e) < 0) {
+		do {
+			while (q2e != null && q2e.compareTo(q1e) < 0) {
 				newQueue.enqueue(q2e);
-				if(q2.isEmpty()) {
-					break;
+				if (q2.isEmpty()) {
+					q2e = null;
+				} else {
+					q2e = q2.dequeue();
 				}
-				q2e = q2.dequeue();
 			}
 			newQueue.enqueue(q1e);
-			if(q1.isEmpty()) {
-				break;
+			if (q1.isEmpty()) {
+				q1e = null;
+			} else {
+				q1e = q1.dequeue();
 			}
-			q1e = q1.dequeue();
+		} while (q1e != null && !(q1.isEmpty() && q2.isEmpty()));
+		
+		while(q2e != null) {
+			newQueue.enqueue(q2e);
+			if (q2.isEmpty()) {
+				q2e = null;
+			} else {
+				q2e = q2.dequeue();
+			}
 		}
-				
 		return newQueue;
 	}
     //
@@ -45,11 +55,11 @@ public class QueueSort<E extends Comparable<E>> {
     // sorted queue
     //
 
-    public void sort(){
-		while (Q.size() != 1) {
+	public void sort() {
+		while (Q.size() > 1) {
 			Q.enqueue(merge(Q.dequeue(), Q.dequeue()));
 		}
-    }
+	}
     //
     // IMPLEMENT ME
     // given a queue Q of queues
